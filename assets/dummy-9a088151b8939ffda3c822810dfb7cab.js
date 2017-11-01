@@ -23,7 +23,7 @@ if(r.easing){var a=i(r.easing,2)
 d=a[0],f=a[1]}var s=100
 r.duration&&(s=r.duration/2)
 var c=new Map([r,{easing:d,duration:s}]),p=new Map([r,{easing:f,duration:s}])
-return o.oldElement.parent(".liquid-container").css("perspective",r.perspective?r.perspective:"1000px").css("overflow","visible"),(0,t.animate)(o.oldElement,n,c,"flip-out").then(function(){return o.oldElement.css("visibility","hidden"),(0,t.animate)(o.newElement,l,p,"flip-out")})})}
+return o.oldElement.parent(".liquid-container").css("perspective",r.perspective?r.perspective:"1000px").css("overflow","visible"),o.newElement.css("visibility","hidden"),(0,t.animate)(o.oldElement,n,c,"flip-out").then(function(){return o.oldElement.css("visibility","hidden"),o.newElement.css("visibility",""),(0,t.animate)(o.newElement,l,p,"flip-out")})})}
 var i=function(){function e(e,t){var n=[],i=!0,r=!1,o=void 0
 try{for(var u,l=e[Symbol.iterator]();!(i=(u=l.next()).done)&&(n.push(u.value),!t||n.length!==t);i=!0);}catch(e){r=!0,o=e}finally{try{!i&&l.return&&l.return()}finally{if(r)throw o}}return n}return function(t,n){if(Array.isArray(t))return t
 if(Symbol.iterator in Object(t))return e(t,n)
