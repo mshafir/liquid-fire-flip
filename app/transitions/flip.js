@@ -54,10 +54,11 @@ export default function flip(dimension, opts) {
     }]);
 
     this.oldElement.parent('.liquid-container')
-        .css('perspective', opts.perspective ? opts.perspective : '1000px');
+        .css('perspective', opts.perspective ? opts.perspective : '1000px')
+        .css('overflow', 'visible');
 
 		return animate(this.oldElement, firstRotation, firstOpts, 'flip-out').then(() => {
-			this.oldElement.css('visibility', '');
+			this.oldElement.css('visibility', 'hidden');
 			return animate(this.newElement, secondRotation, secondOpts, 'flip-out');
 		});
 	});
