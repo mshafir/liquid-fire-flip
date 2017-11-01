@@ -44,7 +44,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/liquid-fire-flip/';
+    ENV.rootURL = '/liquid-fire-flip';
+    ENV.locationType = 'hash';
   }
 
   return ENV;
