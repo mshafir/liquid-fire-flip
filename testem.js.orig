@@ -12,11 +12,20 @@ module.exports = {
     Chrome: {
       mode: 'ci',
       args: [
+<<<<<<< HEAD
         '--headless',
         '--disable-gpu',
         '--remote-debugging-port=9222',
         '--window-size=1440,900'
       ]
     }
+=======
+        '--disable-gpu',
+        '--headless',
+        '--remote-debugging-port=9222',
+        '--window-size=1440,900'
+      ]
+    },
+>>>>>>> 93cac1e... message
   }
 };

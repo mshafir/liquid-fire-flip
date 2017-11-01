@@ -44,7 +44,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+<<<<<<< HEAD
     ENV.rootURL = '/liquid-fire-flip/';
+=======
+    // here you can enable a production-specific feature
+>>>>>>> 93cac1e... message
   }
 
   return ENV;
