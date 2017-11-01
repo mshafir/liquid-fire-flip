@@ -26,6 +26,7 @@ body {
 .liquid-container {
   position: absolute;
   z-index: 0;
+  overflow: visible;
 }
 .liquid-container,
 .liquid-child {

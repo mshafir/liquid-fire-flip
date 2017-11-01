@@ -29,11 +29,32 @@ export default function flip(dimension, opts) {
 		firstRotation[property] = '90deg';
 
 		let secondRotation = { };
-		secondRotation[property] = ['0deg', '-90deg']
+		secondRotation[property] = ['0deg', '-90deg'];
 
-		return animate(this.oldElement, firstRotation, opts, 'flip-out').then(() => {
-			this.oldElement.css('display', 'none');
-			return animate(this.newElement, secondRotation, opts, 'flip-out');
+    let [easeIn, easeOut] = ['ease-in', 'ease-out'];
+    if (opts.easing) {
+      [easeIn, easeOut] = opts.easing;
+    }
+    let duration = 100;
+    if (opts.duration) {
+      duration = opts.duration / 2;
+    }
+
+    let firstOpts = new Map([opts, {
+      easing: easeIn,
+      duration
+    }]);
+    let secondOpts = new Map([opts, {
+      easing: easeOut,
+      duration
+    }]);
+
+    this.oldElement.parent('.liquid-container')
+        .css('perspective', opts.perspective ? opts.perspective : '1000px');
+
+		return animate(this.oldElement, firstRotation, firstOpts, 'flip-out').then(() => {
+			this.oldElement.css('visibility', '');
+			return animate(this.newElement, secondRotation, secondOpts, 'flip-out');
 		});
 	});
 }
