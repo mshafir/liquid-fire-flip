@@ -57,8 +57,10 @@ export default function flip(dimension, opts) {
         .css('perspective', opts.perspective ? opts.perspective : '1000px')
         .css('overflow', 'visible');
 
+    this.newElement.css('visibility', 'hidden');
 		return animate(this.oldElement, firstRotation, firstOpts, 'flip-out').then(() => {
 			this.oldElement.css('visibility', 'hidden');
+      this.newElement.css('visibility', '');
 			return animate(this.newElement, secondRotation, secondOpts, 'flip-out');
 		});
 	});
