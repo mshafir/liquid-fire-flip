@@ -9,6 +9,10 @@ export default function flip(dimension, opts) {
 	let property, firstStep;
 	const flippingElement = findFlippingElement(this);
 
+  if (!opts) {
+    opts = { };
+  }
+
 	if (flippingElement) {
 		// We still have some older version that is in the process of
 		// revealing, so our first step is waiting for it to finish.
